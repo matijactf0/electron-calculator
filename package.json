@@ -1,0 +1,50 @@
+{
+  "name": "profesionalni-kalkulator",
+  "version": "1.0.0",
+  "description": "Profesionalni desktop kalkulator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --linux",
+    "build-appimage": "electron-builder --linux appimage",
+    "build-deb": "electron-builder --linux deb",
+    "build-rpm": "electron-builder --linux rpm",
+    "dist": "npm run build"
+  },
+  "build": {
+    "appId": "com.kalkulator.profesionalni",
+    "productName": "Profesionalni Kalkulator",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "frontend/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": ["x64"]
+        },
+        {
+          "target": "deb",
+          "arch": ["x64"]
+        }
+      ],
+      "category": "Utility",
+      "desktop": {
+        "Name": "Profesionalni Kalkulator",
+        "Comment": "Napredni naučni kalkulator",
+        "Categories": "Utility;Calculator;"
+      }
+    }
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "author": "Serbian Developer",
+  "license": "MIT"
+}
